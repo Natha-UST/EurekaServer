@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo 'Deploy project'
                 bat "docker build -t registry-service ."
-                bat "docker run -p 8761:8761 -d --name registry-sr registry-service"
+                bat "docker run -p 8761:8761 -d --name registry-sr --network new-network registry-service"
             }
         }
         stage('Cleaning') {
